@@ -1,11 +1,26 @@
-import { useEffect, useState } from 'react';
 import Main from './pages/Main';
-import { getGeoPosition, getLocalInfo, getWeatherIcon } from './services/weatherService';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
+import SelectCity from './components/SelectCity';
+import WeatherInfo from './components/WeatherInfo';
+import { WeatherProvider } from './contexts/weatherContext';
 
 function App() {
 
   return (
-    <Main />
+    <WeatherProvider>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Main />}>
+            <Route path='/' element={<SelectCity />} />
+            <Route path='detail' element={<WeatherInfo />} />
+          </Route>
+        </Routes>
+      </Router>
+    </WeatherProvider>
   )
 }
 

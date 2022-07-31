@@ -1,5 +1,4 @@
 import Title from "../Title";
-import Planet from '../../assets/planet.svg';
 import { IoEarthOutline } from 'react-icons/io5';
 import Nav from "../Nav";
 import { locationsList } from '../../utils/locations';
