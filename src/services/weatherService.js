@@ -4,7 +4,6 @@ import dayjs from 'dayjs';
 export async function getLocalInfo(cityName) {
     const { data } = await getInfo({
         params: {
-            lang: 'pt',
             q: cityName,
             dt: dayjs().format('YYYY-MM-DD')
         }
@@ -20,24 +19,24 @@ function formatResponse({ location, forecast: { forecastday: [{ day, astro, hour
         city: location.name,
         region: location.region,
         country: location.country,
-        maxTemp: day.maxtemp_c,
-        minTemp: day.mintemp_c,
+        maxTemp: day.maxtemp_c.toFixed(0),
+        minTemp: day.mintemp_c.toFixed(0),
         sunrise: astro.sunrise,
         sunset: astro.sunset,
-        temp: hour[now].temp_c,
+        temp: hour[now].temp_c.toFixed(0),
         isDay: !!hour[now].is_day,
         condition: {
             text: hour[now].condition.text,
-            icon: hour[now].condition.icon,
-            code: hour[now].condition.code
+            code: hour[now].condition.code,
+            icon: `src/assets/${!!hour[now].is_day ? 'day' : 'night'}/${hour[now].condition.code}.svg`
         },
         wind: ((hour[now].wind_kph * 1000) / 3600).toFixed(2) + 'm/s',
-        humidity: hour[now].humidity,
+        humidity: hour[now].humidity + '%',
         cloud: hour[now].cloud,
         resume: [
             {
                 title: 'dawn',
-                temp: hour[3].temp_c,
+                temp: hour[3].temp_c.toFixed(0),
                 condition: {
                     text: hour[3].condition.text,
                     icon: hour[3].condition.icon,
@@ -46,7 +45,7 @@ function formatResponse({ location, forecast: { forecastday: [{ day, astro, hour
             },
             {
                 title: 'morning',
-                temp: hour[9].temp_c,
+                temp: hour[9].temp_c.toFixed(0),
                 condition: {
                     text: hour[9].condition.text,
                     icon: hour[9].condition.icon,
@@ -55,7 +54,7 @@ function formatResponse({ location, forecast: { forecastday: [{ day, astro, hour
             },
             {
                 title: 'afternoon',
-                temp: hour[15].temp_c,
+                temp: hour[15].temp_c.toFixed(0),
                 condition: {
                     text: hour[15].condition.text,
                     icon: hour[15].condition.icon,
@@ -64,7 +63,7 @@ function formatResponse({ location, forecast: { forecastday: [{ day, astro, hour
             },
             {
                 title: 'night',
-                temp: hour[21].temp_c,
+                temp: hour[21].temp_c.toFixed(0),
                 condition: {
                     text: hour[21].condition.text,
                     icon: hour[21].condition.icon,
