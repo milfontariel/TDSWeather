@@ -22,6 +22,6 @@ function TitleAndInfo({ title, info }) {
 }
 function Spacer() {
     return (
-        <div className="h-6 w-[1px] bg-black"></div>
+        <div className={`h-6 border-l-[1px]`}></div>
     )
 }

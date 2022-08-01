@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function Temperature({ current, min, max, icon }) {
+export default function Temperature({ color, current, min, max, icon }) {
     return (
         <div className="flex flex-col items-center">
             <div className="flex items-center  h-24">
@@ -15,15 +15,15 @@ export default function Temperature({ current, min, max, icon }) {
                     </div>
                 </div>
             </div>
-            <Img color={'black'} img={icon} />
+            <Img color={color} img={icon} />
         </div>
     );
 }
 
-const Img = styled.div`
+export const Img = styled.div`
     width: 200px;
     height: 200px;
-    background-color: ${props => props.color ? props.color : '#fff'};
+    background-color: ${props => props.color};
     -webkit-mask: url(${props => props.img}) no-repeat center / contain;
     mask: url(${props => props.img}) no-repeat center / contain;
 `;

@@ -1,6 +1,4 @@
-import styled from "styled-components"
-import SelectCity from "../../components/SelectCity";
-import Title from "../../components/Title";
+import styled from "styled-components";
 import { Outlet } from 'react-router-dom';
 
 export default function Main() {
