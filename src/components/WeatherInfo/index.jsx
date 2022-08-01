@@ -20,21 +20,6 @@ export default function WeatherInfo() {
         setSelectCity(null);
     }
 
-    const colors = [
-        {
-            from: '#E0E0E0',
-            to: '#A6A6A6'
-        },
-        {
-            from: '#616978',
-            to: '#3C4353'
-        },
-        {
-            from: '#57CBDC',
-            to: '#3BA1B6'
-        },
-    ]
-
     if (selectCity) {
         const { colors } = selectCity.condition;
         const main = colors.main ? colors.main : '#ffffff';

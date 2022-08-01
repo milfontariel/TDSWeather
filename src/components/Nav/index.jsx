@@ -9,9 +9,13 @@ export default function Nav({ locationsList }) {
 
 
     async function handleSelectCity(cityName) {
-        const response = await getLocalInfo(cityName);
-        setSelectCity(response);
-        navigate('/detail');
+        try {
+            const response = await getLocalInfo(cityName);
+            setSelectCity(response);
+            navigate('/detail');
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (

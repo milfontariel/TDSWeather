@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "dev:docker-build": "docker build -t tdsweather .",
+    "dev:docker-run": "docker run -p 5173:5173 tdsweather",
     "preview": "vite preview"
   },
   "dependencies": {
