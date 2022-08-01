@@ -3,15 +3,19 @@ import dayjs from 'dayjs';
 import { conditions } from '../utils/locations';
 
 export async function getLocalInfo(cityName) {
-    const { data } = await getInfo({
-        params: {
-            q: cityName,
-            dt: dayjs().format('YYYY-MM-DD')
-        }
-    });
+    try {
+        const { data } = await getInfo({
+            params: {
+                q: cityName,
+                dt: dayjs().format('YYYY-MM-DD')
+            }
+        });
+        const result = formatResponse(data);
+        return result;
 
-    const result = formatResponse(data);
-    return result;
+    } catch (error) {
+        throw error
+    }
 }
 
 function formatResponse({ location, forecast: { forecastday: [{ day, astro, hour }] } }) {

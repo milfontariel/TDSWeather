@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "dev:docker-build": "docker build -t tdsweather .",
-    "dev:docker-run": "docker run -p 5173:5173 tdsweather",
+    "dev:docker-run": "docker run -p 5173:5173 -d --name tdsweather tdsweather",
+    "dev:docker-stop": "docker stop tdsweather",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -24,8 +25,10 @@
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.0",
     "autoprefixer": "^10.4.8",
+    "babel-plugin-transform-import-meta": "^2.2.0",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.7",
-    "vite": "^3.0.0"
+    "vite": "^3.0.0",
+    "vite-plugin-environment": "^1.1.2"
   }
 }
