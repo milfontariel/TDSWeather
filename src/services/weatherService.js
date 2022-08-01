@@ -31,7 +31,7 @@ function formatResponse({ location, forecast: { forecastday: [{ day, astro, hour
         isDay: !!hour[now].is_day,
         condition: {
             text: hour[now].condition.text,
-            icon: `src/assets/${!!hour[now].is_day ? 'day' : 'night'}/${hour[now].condition.code}.svg`,
+            icon: `/${!!hour[now].is_day ? 'day' : 'night'}/${hour[now].condition.code}.svg`,
             code: hour[now].condition.code,
             colors: conditions.condition[period][currentCondition]
         },
@@ -44,7 +44,7 @@ function formatResponse({ location, forecast: { forecastday: [{ day, astro, hour
                 temp: hour[3].temp_c.toFixed(0),
                 condition: {
                     text: hour[3].condition.text,
-                    icon: `src/assets/${!!hour[3].is_day ? 'day' : 'night'}/${hour[now].condition.code}.svg`,
+                    icon: `/${!!hour[3].is_day ? 'day' : 'night'}/${hour[now].condition.code}.svg`,
                     code: hour[3].condition.code
                 }
             },
@@ -53,7 +53,7 @@ function formatResponse({ location, forecast: { forecastday: [{ day, astro, hour
                 temp: hour[9].temp_c.toFixed(0),
                 condition: {
                     text: hour[9].condition.text,
-                    icon: `src/assets/${!!hour[9].is_day ? 'day' : 'night'}/${hour[now].condition.code}.svg`,
+                    icon: `/${!!hour[9].is_day ? 'day' : 'night'}/${hour[now].condition.code}.svg`,
                     code: hour[9].condition.code
                 }
             },
@@ -62,7 +62,7 @@ function formatResponse({ location, forecast: { forecastday: [{ day, astro, hour
                 temp: hour[15].temp_c.toFixed(0),
                 condition: {
                     text: hour[15].condition.text,
-                    icon: `src/assets/${!!hour[15].is_day ? 'day' : 'night'}/${hour[now].condition.code}.svg`,
+                    icon: `/${!!hour[15].is_day ? 'day' : 'night'}/${hour[now].condition.code}.svg`,
                     code: hour[15].condition.code
                 }
             },
@@ -71,7 +71,7 @@ function formatResponse({ location, forecast: { forecastday: [{ day, astro, hour
                 temp: hour[21].temp_c.toFixed(0),
                 condition: {
                     text: hour[21].condition.text,
-                    icon: `src/assets/${!!hour[21].is_day ? 'day' : 'night'}/${hour[now].condition.code}.svg`,
+                    icon: `/${!!hour[21].is_day ? 'day' : 'night'}/${hour[now].condition.code}.svg`,
                     code: hour[21].condition.code
                 }
             },
