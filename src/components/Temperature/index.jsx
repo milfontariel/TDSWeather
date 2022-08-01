@@ -3,9 +3,9 @@ import styled from "styled-components";
 export default function Temperature({ color, current, min, max, icon }) {
     return (
         <div className="flex flex-col items-center">
-            <div className="flex items-center  h-24">
+            <div className="flex items-center gap-1 h-24">
                 <div>
-                    <p className="text-8xl">{current}</p>
+                    <p className="text-8xl font-bold">{current}</p>
                 </div>
                 <div className="flex flex-col h-full justify-between py-2">
                     <div className="flex justify-end text-xl">°C</div>
